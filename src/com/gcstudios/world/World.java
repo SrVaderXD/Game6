@@ -45,7 +45,7 @@ public class World {
 	}
 
 	public static void restartGame() {
-		// TODO: Aplicar método para reiniciar o jogo corretamente.
+		// TODO
 		return;
 	}
 
