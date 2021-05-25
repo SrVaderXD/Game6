@@ -16,9 +16,9 @@ public class World {
 		for (int xx = 0; xx < WIDTH; xx++) {
 			for (int yy = 0; yy < HEIGHT; yy++) {
 				if (yy == (Game.HEIGHT / 16) - 1) {
-					tiles[xx + yy * WIDTH] = new WallTile(xx * 16, yy * 16, Tile.TILE_WALL);
+					tiles[xx + yy * WIDTH] = new WallTile(xx * 16, yy * 16, Tile.SNOW_TILE);
 				} else {
-					tiles[xx + yy * WIDTH] = new FloorTile(xx * 16, yy * 16, Tile.TILE_FLOOR);
+					tiles[xx + yy * WIDTH] = new FloorTile(xx * 16, yy * 16, Tile.SKY_TILE);
 				}
 			}
 		}
