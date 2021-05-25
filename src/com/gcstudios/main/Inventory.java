@@ -14,7 +14,7 @@ public class Inventory {
 	public boolean isPressed = false, isPlacing = false;
 	public int mx, my;
 	private int inventoryBoxSize = 50, selected = 0;;
-	public String[] item = { "Remove", "Grass", "Dirt", "Snow", "Sand", "" };
+	public String[] item = { "Remove", "Grass", "Dirt", "Snow", "Sand", "Stone" };
 	public int initialPosition = ((Game.WIDTH * Game.SCALE) / 2) - ((item.length * inventoryBoxSize) / 2);
 
 	public void tick() {
@@ -44,13 +44,15 @@ public class Inventory {
 					World.tiles[tileX + tileY * World.WIDTH] = new WallTile(tileX * 16, tileY * 16, Tile.DIRT_TILE);
 				} else if (item[selected] == "Snow") {
 					World.tiles[tileX + tileY * World.WIDTH] = new WallTile(tileX * 16, tileY * 16, Tile.SNOW_TILE);
-				}else if (item[selected] == "Sand") {
+				} else if (item[selected] == "Sand") {
 					World.tiles[tileX + tileY * World.WIDTH] = new WallTile(tileX * 16, tileY * 16, Tile.SAND_TILE);
-				}else if (item[selected] == "Remove") {
+				} else if (item[selected] == "Stone") {
+					World.tiles[tileX + tileY * World.WIDTH] = new WallTile(tileX * 16, tileY * 16, Tile.STONE_TILE);
+				} else if (item[selected] == "Remove") {
 					World.tiles[tileX + tileY * World.WIDTH] = new FloorTile(tileX * 16, tileY * 16, Tile.SKY_TILE);
 				}
-				
-				if(!World.isFree(Game.player.getX(), Game.player.getY())) {
+
+				if (!World.isFree(Game.player.getX(), Game.player.getY())) {
 					World.tiles[tileX + tileY * World.WIDTH] = new FloorTile(tileX * 16, tileY * 16, Tile.SKY_TILE);
 				}
 			}
@@ -82,6 +84,9 @@ public class Inventory {
 						Game.HEIGHT * Game.SCALE - inventoryBoxSize + 8, 36, 36, null);
 			} else if (item[i] == "Sand") {
 				g.drawImage(Tile.SAND_TILE, initialPosition + (i * inventoryBoxSize) + 8,
+						Game.HEIGHT * Game.SCALE - inventoryBoxSize + 8, 36, 36, null);
+			} else if (item[i] == "Stone") {
+				g.drawImage(Tile.STONE_TILE, initialPosition + (i * inventoryBoxSize) + 8,
 						Game.HEIGHT * Game.SCALE - inventoryBoxSize + 8, 36, 36, null);
 			}
 
