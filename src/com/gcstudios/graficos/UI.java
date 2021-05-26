@@ -62,7 +62,7 @@ public class UI {
 			timerFormat += seconds;
 		}
 
-		g.setColor(Color.white);
+		g.setColor(Color.gray);
 		g.setFont(new Font("arial", Font.BOLD, 23));
 		g.drawString(timerFormat, 630, 30);
 	}

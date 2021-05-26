@@ -1,6 +1,8 @@
 package com.gcstudios.world;
 
 import java.awt.Graphics;
+
+import com.gcstudios.entities.Entity;
 import com.gcstudios.main.Game;
 
 public class World {
@@ -10,19 +12,44 @@ public class World {
 	public static final int TILE_SIZE = 16;
 
 	public World() {
-		WIDTH = Game.WIDTH / 16;
-		HEIGHT = Game.HEIGHT / 16;
+		String[] tilesType = { "Grass", "Dirt", "Snow", "Sand", "Stone" };
+		WIDTH = 200;
+		HEIGHT = 80;
+		int mapDivider = WIDTH / tilesType.length;
 		tiles = new Tile[WIDTH * HEIGHT];
 		for (int xx = 0; xx < WIDTH; xx++) {
+			int initialHeight = Entity.rand.nextInt(12 - 8) + 8;
 			for (int yy = 0; yy < HEIGHT; yy++) {
-				if (yy == (Game.HEIGHT / 16) - 1 || xx == (Game.WIDTH / 16) - 1 || xx == 0 || yy == 0) {
+				if (yy == HEIGHT - 1 || xx == WIDTH - 1 || xx == 0 || yy == 0) {
 					tiles[xx + yy * WIDTH] = new WallTile(xx * 16, yy * 16, Tile.STONE_TILE);
 					tiles[xx + yy * WIDTH].solid = true;
 				} else {
-					tiles[xx + yy * WIDTH] = new FloorTile(xx * 16, yy * 16, Tile.SKY_TILE);
+
+					if (yy >= initialHeight) {
+						int biomeIndex = xx / mapDivider;
+
+						if (tilesType[biomeIndex] == "Grass") {
+							tiles[xx + yy * WIDTH] = new WallTile(xx * 16, yy * 16, Tile.GRASS_TILE);
+						} else if (tilesType[biomeIndex] == "Dirt") {
+							tiles[xx + yy * WIDTH] = new WallTile(xx * 16, yy * 16, Tile.DIRT_TILE);
+						} else if (tilesType[biomeIndex] == "Snow") {
+							tiles[xx + yy * WIDTH] = new WallTile(xx * 16, yy * 16, Tile.SNOW_TILE);
+						} else if (tilesType[biomeIndex] == "Sand") {
+							tiles[xx + yy * WIDTH] = new WallTile(xx * 16, yy * 16, Tile.SAND_TILE);
+						} else if (tilesType[biomeIndex] == "Stone") {
+							tiles[xx + yy * WIDTH] = new WallTile(xx * 16, yy * 16, Tile.STONE_TILE);
+						} else {
+							tiles[xx + yy * WIDTH] = new FloorTile(xx * 16, yy * 16, Tile.SKY_TILE);
+						}
+
+					} else {
+						tiles[xx + yy * WIDTH] = new FloorTile(xx * 16, yy * 16, Tile.SKY_TILE);
+
+					}
 				}
 			}
 		}
+
 	}
 
 	public static boolean isFree(int xnext, int ynext) {
