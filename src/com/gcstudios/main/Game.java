@@ -96,6 +96,7 @@ public class Game extends Canvas implements Runnable, KeyListener, MouseListener
 		}
 		
 		inventory.tick();
+		ui.tick();
 
 	}
 

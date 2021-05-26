@@ -9,6 +9,8 @@ import com.gcstudios.world.World;
 public class Player extends Entity {
 
 	public boolean right, left;
+	
+	public static int maxLife = 10, curLife = maxLife;
 
 	public int dir = 1;
 	private double gravity = 2;
