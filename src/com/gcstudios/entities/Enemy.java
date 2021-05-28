@@ -40,7 +40,7 @@ public class Enemy extends Entity {
 				if (World.tiles[nextX + nextY * World.WIDTH] instanceof WallTile
 						&& !World.tiles[nextX + nextY * World.WIDTH].solid) {
 					 
-					World.tiles[nextX + nextY * World.WIDTH] = new FloorTile(nextX * 16, nextY * 16, Tile.SKY_TILE);
+					World.tiles[nextX + nextY * World.WIDTH] = new FloorTile(nextX * 16, nextY * 16, Tile.NOON_SKY_TILE);
 				}
 
 				dir = -1;
@@ -57,7 +57,7 @@ public class Enemy extends Entity {
 				if (World.tiles[nextX + nextY * World.WIDTH] instanceof WallTile
 						&& !World.tiles[nextX + nextY * World.WIDTH].solid) {
 					 
-					World.tiles[nextX + nextY * World.WIDTH] = new FloorTile(nextX * 16, nextY * 16, Tile.SKY_TILE);
+					World.tiles[nextX + nextY * World.WIDTH] = new FloorTile(nextX * 16, nextY * 16, Tile.NOON_SKY_TILE);
 				}
 				
 				dir = 1;

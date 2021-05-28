@@ -7,13 +7,15 @@ import java.awt.image.BufferedImage;
 
 import com.gcstudios.entities.Player;
 import com.gcstudios.main.Game;
+import com.gcstudios.world.World;
 
 public class UI {
 
 	public static BufferedImage HEART1 = Game.spritesheet.getSprite(0, 80, 16, 16);
 	public static BufferedImage HEART2 = Game.spritesheet.getSprite(16, 80, 16, 16);
 
-	private int frames = 0, seconds = 0, minutes = 0;
+	private int frames = 0;
+	public static int seconds = 0, minutes = 0;
 
 	public void tick() {
 
@@ -26,6 +28,14 @@ public class UI {
 			if (seconds == 60) {
 				seconds = 0;
 				minutes++;
+				
+				if (minutes % 2 == 0) {
+					World.cycle++;
+
+					if (World.cycle > World.night) {
+						World.cycle = 0;
+					}
+				}
 			}
 		}
 
@@ -62,7 +72,7 @@ public class UI {
 			timerFormat += seconds;
 		}
 
-		g.setColor(Color.gray);
+		g.setColor(Color.yellow);
 		g.setFont(new Font("arial", Font.BOLD, 23));
 		g.drawString(timerFormat, 630, 30);
 	}

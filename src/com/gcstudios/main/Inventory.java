@@ -49,11 +49,11 @@ public class Inventory {
 				} else if (item[selected] == "Stone") {
 					World.tiles[tileX + tileY * World.WIDTH] = new WallTile(tileX * 16, tileY * 16, Tile.STONE_TILE);
 				} else if (item[selected] == "Remove") {
-					World.tiles[tileX + tileY * World.WIDTH] = new FloorTile(tileX * 16, tileY * 16, Tile.SKY_TILE);
+					World.tiles[tileX + tileY * World.WIDTH] = new FloorTile(tileX * 16, tileY * 16, Tile.NOON_SKY_TILE);
 				}
 
 				if (!World.isFree(Game.player.getX(), Game.player.getY())) {
-					World.tiles[tileX + tileY * World.WIDTH] = new FloorTile(tileX * 16, tileY * 16, Tile.SKY_TILE);
+					World.tiles[tileX + tileY * World.WIDTH] = new FloorTile(tileX * 16, tileY * 16, Tile.NOON_SKY_TILE);
 				}
 			}
 		}

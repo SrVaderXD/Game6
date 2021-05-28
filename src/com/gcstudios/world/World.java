@@ -1,7 +1,6 @@
 package com.gcstudios.world;
 
 import java.awt.Graphics;
-
 import com.gcstudios.entities.Entity;
 import com.gcstudios.main.Game;
 
@@ -10,6 +9,8 @@ public class World {
 	public static Tile[] tiles;
 	public static int WIDTH, HEIGHT;
 	public static final int TILE_SIZE = 16;
+
+	public static int noon = 0, night = 1, cycle = Entity.rand.nextInt(2);
 
 	public World() {
 		String[] tilesType = { "Grass", "Dirt", "Snow", "Sand", "Stone" };
@@ -39,11 +40,11 @@ public class World {
 						} else if (tilesType[biomeIndex] == "Stone") {
 							tiles[xx + yy * WIDTH] = new WallTile(xx * 16, yy * 16, Tile.STONE_TILE);
 						} else {
-							tiles[xx + yy * WIDTH] = new FloorTile(xx * 16, yy * 16, Tile.SKY_TILE);
+							tiles[xx + yy * WIDTH] = new FloorTile(xx * 16, yy * 16, Tile.NOON_SKY_TILE);
 						}
 
 					} else {
-						tiles[xx + yy * WIDTH] = new FloorTile(xx * 16, yy * 16, Tile.SKY_TILE);
+						tiles[xx + yy * WIDTH] = new FloorTile(xx * 16, yy * 16, Tile.NOON_SKY_TILE);
 
 					}
 				}
