@@ -20,8 +20,8 @@ public class Entity {
 	public static BufferedImage[] PLAYER_SPRITE_LEFT = { Game.spritesheet.getSprite(0, 48, 16, 16),
 			Game.spritesheet.getSprite(16, 48, 16, 16) };
 
-	public static BufferedImage ENEMY1_RIGHT = Game.spritesheet.getSprite(32, 0, 16, 16);
-	public static BufferedImage ENEMY1_LEFT = Game.spritesheet.getSprite(48, 0, 16, 16);
+	public static BufferedImage ENEMY1_RIGHT = Game.spritesheet.getSprite(0, 64, 16, 16);
+	public static BufferedImage ENEMY1_LEFT = Game.spritesheet.getSprite(16, 64, 16, 16);
 	protected double x;
 	protected double y;
 	protected int width;

@@ -14,7 +14,10 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
 import javax.swing.JFrame;
+
+import com.gcstudios.entities.EnemySpawn;
 import com.gcstudios.entities.Entity;
 import com.gcstudios.entities.Player;
 import com.gcstudios.graficos.Spritesheet;
@@ -38,6 +41,7 @@ public class Game extends Canvas implements Runnable, KeyListener, MouseListener
 	public static Spritesheet spritesheet;
 	public static Player player;
 	public static Inventory inventory;
+	public static EnemySpawn enemySpawn;
 
 	public UI ui;
 
@@ -55,6 +59,7 @@ public class Game extends Canvas implements Runnable, KeyListener, MouseListener
 		ui = new UI();
 		entities.add(player);
 		inventory = new Inventory();
+		enemySpawn = new EnemySpawn();
 
 	}
 
@@ -94,9 +99,10 @@ public class Game extends Canvas implements Runnable, KeyListener, MouseListener
 			Entity e = entities.get(i);
 			e.tick();
 		}
-		
+
 		inventory.tick();
 		ui.tick();
+		enemySpawn.tick();
 
 	}
 
@@ -202,13 +208,13 @@ public class Game extends Canvas implements Runnable, KeyListener, MouseListener
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		
-		if(e.getButton() == MouseEvent.BUTTON1) {
+
+		if (e.getButton() == MouseEvent.BUTTON1) {
 			inventory.isPressed = true;
-		}else if(e.getButton() == MouseEvent.BUTTON3) {
+		} else if (e.getButton() == MouseEvent.BUTTON3) {
 			inventory.isPlacing = true;
 		}
-		
+
 		inventory.mx = e.getX();
 		inventory.my = e.getY();
 	}
