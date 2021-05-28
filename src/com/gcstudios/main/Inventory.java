@@ -13,7 +13,8 @@ public class Inventory {
 
 	public boolean isPressed = false, isPlacing = false;
 	public int mx, my;
-	private int inventoryBoxSize = 50, selected = 0;;
+	private int inventoryBoxSize = 50; 
+	public int selected = 0;;
 	public String[] item = { "Remove", "Grass", "Dirt", "Snow", "Sand", "Stone" };
 	public int initialPosition = ((Game.WIDTH * Game.SCALE) / 2) - ((item.length * inventoryBoxSize) / 2);
 

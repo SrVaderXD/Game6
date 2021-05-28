@@ -160,22 +160,43 @@ public class Game extends Canvas implements Runnable, KeyListener, MouseListener
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-		if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+		if (e.getKeyCode() == KeyEvent.VK_D) {
 			player.right = true;
-		} else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+		} else if (e.getKeyCode() == KeyEvent.VK_A) {
 			player.left = true;
 		}
-
-		if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+		if (e.getKeyCode() == KeyEvent.VK_W) {
 			player.jump = true;
 		}
+		if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+			player.attack = true;
+		}
+		if (e.getKeyCode() == KeyEvent.VK_1) {
+			inventory.selected = 0;
+		}
+		if (e.getKeyCode() == KeyEvent.VK_2) {
+			inventory.selected = 1;
+		}
+		if (e.getKeyCode() == KeyEvent.VK_3) {
+			inventory.selected = 2;
+		}
+		if (e.getKeyCode() == KeyEvent.VK_4) {
+			inventory.selected = 3;
+		}
+		if (e.getKeyCode() == KeyEvent.VK_5) {
+			inventory.selected = 4;
+		}
+		if (e.getKeyCode() == KeyEvent.VK_6) {
+			inventory.selected = 5;
+		}
+		
 	}
 
 	@Override
 	public void keyReleased(KeyEvent e) {
-		if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+		if (e.getKeyCode() == KeyEvent.VK_D) {
 			player.right = false;
-		} else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+		} else if (e.getKeyCode() == KeyEvent.VK_A) {
 			player.left = false;
 		}
 
